@@ -3,9 +3,7 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.db.models import Q
 from django.views.generic import *
 
-from baseapp.forms.chamado import ChamadoForm
 from baseapp.forms.grafico import GraficoForm
-from baseapp.models.chamado import Chamado
 from baseapp.models.grafico import Grafico
 
 from baseapp.variaveis import *
@@ -91,10 +89,10 @@ def get_queryset_filter(self,form,descricao):
 class GraficoPorResposavelListView(PermissionRequiredMixin, ListView):
     permission_required = ADD_CHAMADO
     template_name = 'chamado/chamado_list.html'
-    model = Chamado
-    queryset = Chamado
+    model = Grafico
+    queryset = Grafico
     paginate_by = 10
-    form_class = ChamadoForm
+    form_class = GraficoForm
     select = {'todos': '0', 'codigo': '1', 'nome': '2', 'solicitante': '3', 'responsavel': '4',
               'descricao': '5'
               }
@@ -124,7 +122,7 @@ class GraficoMeuListView(ListView):
     model = Grafico
     queryset = Grafico
     paginate_by = 10
-    form_class = ChamadoForm
+    form_class = GraficoForm
     select = {'todos': '0', 'codigo': '1', 'nome': '2',  'responsavel': '4',
               'descricao': '5'
               }

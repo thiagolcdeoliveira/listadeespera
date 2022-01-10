@@ -25,7 +25,7 @@ class DashboardView(LoginRequiredMixin,TemplateView):
             return redirect(reverse_lazy('login'))
         else:
             if not self.request.user.groups.filter(name = 'Administrador').exists():
-                return redirect(reverse_lazy('chamado-meu-list'))
+                return redirect(reverse_lazy('home'))
         return render(request,self.template_name,self.get_context_data())
 
     def post(self, request, *args, **kwargs):

@@ -4,7 +4,6 @@ from django.urls import reverse
 from django.views import View
 
 from baseapp.forms.grafico import GraficoForm
-from baseapp.forms.setor import SetorAjaxForm
 from baseapp.models.tipo_grafico import TipoGrafico
 
 

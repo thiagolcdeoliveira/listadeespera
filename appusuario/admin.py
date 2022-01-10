@@ -1,7 +1,7 @@
-from django.contrib.auth.models import User
-from django.contrib.gis.geoip2 import resources
-
-from appusuario.models import ComplementoUsuario\
+from appusuario.models.complemento_usuario import ComplementoUsuario
+from appusuario.models.tipo_propriedade import TipoPropriedade
+from appusuario.models.propriedade import Propriedade
+#\
     # , Email, Instituicao
 from django.contrib import admin
 # from import_export import resources

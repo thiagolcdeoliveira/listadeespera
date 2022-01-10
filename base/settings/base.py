@@ -35,7 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'baseapp',
-    'appusuario'
+    'appusuario',
+    'listaapp'
+
 ]
 
 MIDDLEWARE = [
@@ -95,7 +97,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'UTC'
 
@@ -128,3 +130,11 @@ BASE_MEDIA_DIR = Path(__file__).resolve().parent.parent
 MEDIA_ROOT = os.path.join(BASE_MEDIA_DIR, "media")
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
+#EMail
+EMAIL_HOST_USER = "ti.prefeitura.araquari@gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_Host = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_Host_PASSWORD = ''

@@ -3,8 +3,7 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.db.models import Q
 from django.views.generic import *
 
-from baseapp.forms.chamado import ChamadoForm
-from baseapp.models.chamado import Chamado
+from baseapp.forms.noticacao import NotificacaoForm
 from baseapp.models.notificacao import Notificacao
 
 from baseapp.variaveis import *
@@ -13,10 +12,10 @@ from baseapp.variaveis import *
 class NotificacaoListView(PermissionRequiredMixin, ListView):
     permission_required = ADD_CHAMADO
     template_name = 'notificacao/notificacao_list.html'
-    model = Chamado
-    queryset = Chamado
+    model = Notificacao
+    queryset = Notificacao
     paginate_by = 10
-    form_class = ChamadoForm
+    form_class = NotificacaoForm
     select = {'todos': '0', 'codigo': '1', 'nome': '2', 'solicitante': '3', 'responsavel': '4',
               'descricao': '5'
               }
@@ -90,10 +89,10 @@ def get_queryset_filter(self,form,descricao):
 class NotificacaoPorResposavelListView(PermissionRequiredMixin, ListView):
     permission_required = ADD_CHAMADO
     template_name = 'notificacao/notificacao_list.html'
-    model = Chamado
-    queryset = Chamado
+    model = Notificacao
+    queryset = Notificacao
     paginate_by = 10
-    form_class = ChamadoForm
+    form_class = NotificacaoForm
     select = {'todos': '0', 'codigo': '1', 'nome': '2', 'solicitante': '3', 'responsavel': '4',
               'descricao': '5'
               }
@@ -120,10 +119,10 @@ class NotificacaoPorResposavelListView(PermissionRequiredMixin, ListView):
 class NotificacaoMeuListView(ListView):
     # permission_required = ADD_CHAMADO
     template_name = 'notificacao/notificacao_list.html'
-    model = Chamado
-    queryset = Chamado
+    model = Notificacao
+    queryset = Notificacao
     paginate_by = 10
-    form_class = ChamadoForm
+    form_class = NotificacaoForm
     select = {'todos': '0', 'codigo': '1', 'nome': '2', 'solicitante': '3', 'responsavel': '4',
               'descricao': '5'
               }

@@ -1,15 +1,10 @@
 # coding=utf-8
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.db.models import Q
-from django.shortcuts import  redirect, render
-from django.urls import reverse_lazy
 
 from django.views.generic import *
 
-from appusuario.variaveis import ADD_CHAMADO
-from baseapp.forms.chamado import ChamadoForm
 from baseapp.forms.grafico import GraficoForm
-from baseapp.models import Chamado
 from baseapp.models.dashboard import Dashboard
 from baseapp.models.grafico import Grafico
 

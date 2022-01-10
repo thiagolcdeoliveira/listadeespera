@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load   static  system %}
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SGP -
+        {% block title_block %}
+        Mural
+        {% endblock title_block %}</title>
+
+    <link href="{% static 'fontawesome/css/all.min.css'%}" rel="stylesheet">
+  <link href="{% static 'listaapp/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="{% static 'listaapp/css/base.css'%}" rel="stylesheet">
+
+  <!-- Favicons -->
+
+
+
+  <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .footer.segment {
+      padding: 5em 0em;
+    }
+
+    </style>
+
+
+  <!-- Custom styles for this template -->
+
+</head>
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-md navbar-light  bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img width="40" src="{%static 'img/logo1.png' %}"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active text-center " aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item text-center">
+            <a class="nav-link" href="#">Casdastre uma Criança</a>
+          </li>
+          <li class="nav-item text-center">
+            <a class="nav-link " href="{%url 'crianca-publica-list'%}">Consulte a Lista Pública</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'listaapp/img/banner12.jpg'%}" width="100%" />
+      <div class="container">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% block body_block %}
+{% endblock  %}
+
+
+
+
+        {% block js_block %}
+        {% endblock js_block %}
+    {% block css_block %}
+        {% endblock css_block %}
+
+
+
+
+<!-- FOOTER -->
+<footer class="bd-footer py-5 mt-5 bg-light">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-3 mb-3">
+        <img src="{% static 'img/logocompleto.png'%}" width="200">
+        <ul class="list-unstyled small text-muted">
+          <li class="mb-2">SGFC - Sistema de Gestão da Fila de Espera dos Centros de Educação Intantil do <a href="araquari.sc.gov.br">Município de Araquari,</a> desenvolvido para suporte a <a href="educacao.araquari.sc.gov.br">Secretaria de Educação</a>.</li>
+          <li class="mb-2">Copyright © DTI Prefeitura Municipal de Araquari</li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-1 mb-3">
+        <h5>Links</h5>
+        <ul class="list-unstyled">
+         <li class="mb-2"> <a href="{%url 'home' %}" class="item">Home</a></li>
+          <li class="mb-2"><a href="{%url 'crianca-add' %}" class="item">Cadastro na Fila</a></li>
+          <li class="mb-2"><a href="{%url 'user-add' %}" class="item">Cadastro de Usuário</a></li>
+          <li class="mb-2"><a href="http://educacao.araquari.sc.gov.br"  class="item">Portal da Educação</a></li>
+        </ul>
+      </div>
+<!--      <div class="col-6 col-lg-2 mb-3">-->
+<!--        <h5>Guides</h5>-->
+<!--        <ul class="list-unstyled">-->
+<!--          <li class="mb-2"><a href="/docs/5.1/getting-started/">Getting started</a></li>-->
+<!--          <li class="mb-2"><a href="/docs/5.1/examples/starter-template/">Starter template</a></li>-->
+<!--          <li class="mb-2"><a href="/docs/5.1/getting-started/webpack/">Webpack</a></li>-->
+<!--          <li class="mb-2"><a href="/docs/5.1/getting-started/parcel/">Parcel</a></li>-->
+<!--        </ul>-->
+<!--      </div>-->
+<!--      <div class="col-6 col-lg-2 mb-3">-->
+<!--        <h5>Projects</h5>-->
+<!--        <ul class="list-unstyled">-->
+<!--      <li class="mb-2">-->
+<!--          <a href="/" class="item">Home</a></li>-->
+<!--          <li class="mb-2"><a href="/regiter.php" class="item">Cadastro</a></li>-->
+<!--          <li class="mb-2"><a href="http://educacao.araquari.sc.gov.br"  class="item">Portal da Educação</a></li>-->
+
+<!--        </ul>-->
+<!--      </div>-->
+<!--      <div class="col-6 col-lg-2 mb-3">-->
+<!--        <h5>Community</h5>-->
+<!--        <ul class="list-unstyled">-->
+<!--          <li class="mb-2"><a href="https://github.com/twbs/bootstrap/issues">Issues</a></li>-->
+<!--          <li class="mb-2"><a href="https://github.com/twbs/bootstrap/discussions">Discussions</a></li>-->
+<!--          <li class="mb-2"><a href="https://github.com/sponsors/twbs">Corporate sponsors</a></li>-->
+<!--          <li class="mb-2"><a href="https://opencollective.com/bootstrap">Open Collective</a></li>-->
+<!--          <li class="mb-2"><a href="https://bootstrap-slack.herokuapp.com/">Slack</a></li>-->
+<!--          <li class="mb-2"><a href="https://stackoverflow.com/questions/tagged/bootstrap-5">Stack Overflow</a></li>-->
+<!--        </ul>-->
+<!--      </div>-->
+<!--    </div>-->
+  </div>
+  </div>
+</footer>
+<!--<footer class="container">-->
+<!--  <p class="float-end"><a href="#">Back to top</a></p>-->
+<!--  <p> Copyright &copy; TI Prefeitura Municipal de Araquari 2021  &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>-->
+<!--</footer>-->
+
+
+<script src="{% static 'listaapp/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+
+</body>
+</html>

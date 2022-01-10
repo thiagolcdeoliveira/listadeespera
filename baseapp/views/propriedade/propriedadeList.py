@@ -3,12 +3,9 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.db.models import Q
 from django.views.generic import *
 
-from baseapp.forms.chamado import ChamadoForm
 from baseapp.forms.grafico import GraficoForm
-from baseapp.forms.propriedade import PropriedadeForm
-from baseapp.models.chamado import Chamado
-from baseapp.models.grafico import Grafico
-from baseapp.models.propriedade import Propriedade
+from appusuario.forms.propriedade import PropriedadeForm
+from appusuario.models.propriedade import Propriedade
 
 from baseapp.variaveis import *
 

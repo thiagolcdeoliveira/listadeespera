@@ -1,0 +1,118 @@
+{% extends 'base_lista.html' %}
+
+{% load static%}
+{% block title_block %}
+Lista de Produtos
+{% endblock title_block %}
+{% block body_block %}
+
+
+<div class="container">
+    <div class="row cabecario-impressao" style="display:none">
+        <div class="col-2">
+            <div class="py-5 text-center">
+                <img alt="" class="d-block mx-auto mb-4" height="90" src="{% static '/img/logo1.png'%}" width="100">
+            </div>
+        </div>
+        <div class="col-9">
+
+            <div class="py-5 text-center">
+                <h2>Lista de Espera Unificada</h2>
+                <p class="lead">Consulta Pública a lista de Espera Unificadas dos Ceis da rede Municpal de
+                    Araquari. </p>
+            </div>
+        </div>
+        <div class="col"></div>
+
+    </div>
+
+    <div class="row cabecario-normal">
+        <div class="py-5 text-center">
+            <!--        <img class="d-block mx-auto mb-4" src="{% static '/img/logo1.png'%}" alt="" width="72" height="72">-->
+            <h2>Lista de Espera Unificada</h2>
+            <p class="lead">Consulta Pública a lista de Espera Unificadas dos Ceis da rede Municpal de Araquari. </p>
+        </div>
+
+    </div>
+
+    <!--    <form class="form" action="." method="GET" enctype="multipart/form-data">-->
+
+
+    <form action="" class="" enctype="multipart/form-data" method="post"> {% csrf_token %}
+        <div class="row">
+            <div class="col-md-6">
+                <label>Nome da Criança</label>
+                <input class="form-control" name="nome">
+            </div>
+            <div class="col-md-6">
+                <label>Sobrenome da Criança</label>
+                <input class="form-control" name="sobrenome">
+
+            </div>
+        </div>
+  <div class="row">
+
+            <div class="col-md-6">
+                <label>Data de Nascimento da Criança</label>
+                <!--                 {{form.data_nasc}}-->
+                <input class="form-control" name="data_nasc" type="date">
+
+
+            </div>
+       <div class="col-md-6">
+                <label>CPF da Criança</label>
+                <!--                 {{form.data_nasc}}-->
+                <input class="form-control" name="cpf" type="text">
+
+
+            </div>
+        </div>
+
+        <hr class="featurette-divider" >
+        <label class="espaco">Quais CEIs da rede municpal, você deseja solicitar vaga?</label>
+
+        <div class="row">
+
+            {%for cei in ceis %}
+            <div class="col-md-4">
+
+            <div class="form-check">
+                <input class="form-check-input" id="id_{{cei.pk}}_cei" name="cei" type="checkbox" value="{{cei.pk}}">
+                <label class="form-check-label" for="id_{{cei.pk}}_cei">
+                    {{cei.nome}}
+                </label>
+            </div>
+
+
+            </div>
+            {%endfor%}
+
+
+        </div>
+
+<!--        {{form.cei}}-->
+
+        <hr class="featurette-divider" >
+<div class="row">
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" id="autorizacao" name="autotizacao" type="checkbox">
+                <label class="form-check-label" for="autorizacao">
+                   Se você (o responsavel pela criança) permite o compartilhamento dos seus dados e dos dados da criança com a Prefeitura Municpal de Araquari, marque essa opção.
+                </label>
+            </div>
+        </div>
+</div>
+<div class="row">
+        <div class="btn-group btn-lg btn-block">
+            <a class="btn btn-light " href="{{ request.META.HTTP_REFERER }}">
+                voltar
+            </a>
+            <button class="btn btn-dark" type="submit">Cadastrar</button>
+        </div>
+    </div>
+    </form>
+</div>
+
+
+{%endblock%}

@@ -4,24 +4,17 @@ from __future__ import unicode_literals
 from django.conf.urls import url
 
 from baseapp.views.ContadorGerarAjax import ContadorGerarAjaxView
-from baseapp.views.EnderecoCreateAjax import EnderecoCreateAjaxView
-from baseapp.views.EquipamentoSearchAjax import EquipamentoSearchAjaxView
+from listaapp.views.EnderecoCreateAjax import EnderecoCreateAjaxView
+from listaapp.views.EquipamentoSearchAjax import EquipamentoSearchAjaxView
 from baseapp.views.GraficoGerarAjax import GraficoGerarAjaxView
 from baseapp.views.ListaGerarAjax import ListaGerarAjaxView
-from baseapp.views.PesquisarUserCreateAjax import PesquisarUserCreateAjaxView
-from baseapp.views.ProdutoSearchAjax import ProdutoSearchAjaxView
-from baseapp.views.PropriedadeCreateAjax import PropriedadeCreateAjaxView
-from baseapp.views.PropriedadeSearchAjax import PropriedadeSearchAjaxView
-from baseapp.views.SetorCreateAjax import SetorCreateAjaxView
+from listaapp.views.ProdutoSearchAjax import ProdutoSearchAjaxView
+from appusuario.views.PropriedadeCreateAjax import PropriedadeCreateAjaxView
+from appusuario.views.PropriedadeSearchAjax import PropriedadeSearchAjaxView
+from listaapp.views.CeiCreateAjax import CeiCreateAjaxView
 from baseapp.views.TabelaGerarAjax import TabelaGerarAjaxView
-from baseapp.views.TipoPropriedadeCreateAjax import TipoPropriedadeCreateAjaxView
-from baseapp.views.chamado.chamadoAbrir import ChamadoAbrirView
-from baseapp.views.chamado.chamadoCreate import ChamadoUsuarioCreateView, ChamadoCreateView
-from baseapp.views.chamado.chamadoDetail import ChamadoDetailView, ChamadoUsuarioDetailView
-from baseapp.views.chamado.chamadoFechar import ChamadoFecharView
-from baseapp.views.chamado.chamadoList import ChamadoListView, ChamadoMeuListView
-from baseapp.views.chamado.chamadoQrcode import ChamadoQrcodeView
-from baseapp.views.chamado.chamadoUpadate import ChamadoUpdateView, ChamadoAdminUpdateView, ChamadoIniciarUpdateView
+from appusuario.views.TipoPropriedadeCreateAjax import TipoPropriedadeCreateAjaxView
+
 from baseapp.views.dashboard.dashboardCreate import DashboardCreateView
 from baseapp.views.dashboard.dashboardDelete import DashboardDeleteView, DashboardActiveView, DashboardDesativeView
 from baseapp.views.dashboard.dashboardDetail import DashboardDetailView
@@ -31,7 +24,6 @@ from baseapp.views.dashboard.dashboardUpdate import DashboardUpdateView
 from baseapp.views.grafico.graficoDetail import GraficoDetailView
 from baseapp.views.grafico.graficoList import GraficoListView
 from baseapp.views.graficoCreateAjax import GraficoCreateAjaxView
-from baseapp.views.mensagemCreate import MensagemCreateView
 from baseapp.views.notificacao import NotificacaoView
 from baseapp.views.notificacaoList import NotificacaoMeuListView
 from baseapp.views.grafico.graficoCreate import GraficoCreateView
@@ -41,47 +33,10 @@ from baseapp.views.propriedade.propriedadeList import PropriedadeListView, Propr
 from baseapp.views.propriedade.propriedadeUpadate import PropriedadeUpdateView
 
 urlpatterns = [
-    url(r'^chamado/cadastrar/$', ChamadoUsuarioCreateView.as_view(),
-        name='chamado-add'),
-    url(r'^chamado/admin/cadastrar/$', ChamadoCreateView.as_view(),
-        name='chamado-admin-add'),
-    url(r'^chamado/listar$', ChamadoListView.as_view(),
-        name='chamado-list'),
-    url(r'^chamado/servidor/listar$', ChamadoMeuListView.as_view(),
-        name='chamado-meu-list'),
-    url(r'^chamado/visualizar/(?P<pk>[\d\-]+)/$', ChamadoDetailView.as_view(),
-        name='chamado-detail'),
-    url(r'^chamado/(?P<pk>[\d\-]+)/visualizar/$', ChamadoUsuarioDetailView.as_view(),
-        name='chamado-usuario-detail'),
-
-    url(r'^chamado/atualizar/(?P<pk>[\d\-]+)/$', ChamadoUpdateView.as_view(),
-        name='chamado-update'),
-    url(r'^chamado/admin/atualizar/(?P<pk>[\d\-]+)/$', ChamadoAdminUpdateView.as_view(),
-        name='chamado-admin-update'),
-    url(r'^chamado/gerar/qrcode/(?P<pk>[\d\-]+)/$', ChamadoQrcodeView.as_view(),
-        name='chamado-gera-qrcode'),
-
-    url(r'^chamado/excluir/(?P<pk>[\d\-]+)/$', ChamadoCreateView.as_view(),
-        name='chamado-delete'),
-    url(r'^chamado/fechar/(?P<pk>[\d\-]+)', ChamadoFecharView.as_view(),
-        name='chamado-fechar'),
-    url(r'^chamado/abrir/(?P<pk>[\d\-]+)', ChamadoAbrirView.as_view(),
-        name='chamado-abrir'),
-    url(r'^chamado/usuario/atualizar/(?P<pk>[\d\-]+)/$', ChamadoUpdateView.as_view(),
-        name='chamado-usuario-update'),
-    url(r'^chamado/atendimento/iniciar/(?P<pk>[\d\-]+)/$', ChamadoIniciarUpdateView.as_view(),
-        name='chamado-iniciar'),
-
-    url(r'^chamado/servidor/pesquisar/$', PesquisarUserCreateAjaxView.as_view(),
-        name='user-servidor-pesquisar'),
-    url(r'^chamado/mensagem/cadastrar/(?P<pk>[\d\-]+)/$', MensagemCreateView.as_view(),
-        name='mensagem-chamado-add'),
-    url(r'^chamado/propriedade/(?P<pk>[\d\-]+)/$', ChamadoListView.as_view(),
-        name='chamado-propriedade-history'),
 
     # Setor
-    url(r'^setor/cadastrar/ajax/', SetorCreateAjaxView.as_view(),
-        name='setor-add'),
+    url(r'^cei/cadastrar/ajax/', CeiCreateAjaxView.as_view(),
+        name='cei-add'),
 
 
     #Dashboard

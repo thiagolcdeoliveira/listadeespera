@@ -1,8 +1,8 @@
 # coding=utf-8
 from django.contrib.auth.mixins import  LoginRequiredMixin
 from django.views.generic.edit import CreateView
-from baseapp.forms.propriedade import PropriedadeForm
-from baseapp.models.propriedade import Propriedade
+from appusuario.forms.propriedade import PropriedadeForm
+from appusuario.models.propriedade import Propriedade
 
 
 class PropriedadeCreateView(LoginRequiredMixin, CreateView):

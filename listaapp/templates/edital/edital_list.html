@@ -1,0 +1,153 @@
+{% extends 'base_mural_cards.html' %}
+
+{% block title_block %}
+Dashboard
+{% endblock title_block %}
+{% load  static   %}
+
+{% block body_block %}
+
+
+<!-- Card Body -->
+
+<div class="col-xl-10  col-center-auto justify-content-md-center col-lg-10">
+    <div class="row">
+    <div class="col-md-4">
+        <div class=" card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-dark"><i class="fa fa-newspaper "></i> Edital de Progressão</h6>
+            </div>
+            <div class="card-body">
+
+                Do mesmo modo, a contínua expansão de nossa atividade desafia a capacidade de equalização das diversas correntes de pensamento. Por outro lado, a complexidade dos estudos efetuados não pode mais se dissociar de todos os recursos funcionais envolvidos. Caros amigos, a revolução dos costumes acarreta um processo de reformulação e modernização do retorno esperado a longo prazo. Acima de tudo, é fundamental ressaltar que o surgimento do comércio virtual pode nos levar a considerar a reestruturação das condições financeiras e administrativas exigidas.            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class=" card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 id="contador_titulo_{{object.id}}_" class="m-0 font-weight-bold text-dark">
+                   <i class="fa fa-alert "></i>  Mudança de Horario de Atendimento</h6>
+            </div>
+            <div class="card-body">
+                Do mesmo modo, a contínua expansão de nossa atividade desafia a capacidade de equalização das diversas correntes de pensamento. Por outro lado, a complexidade dos estudos efetuados não pode mais se dissociar de todos os recursos funcionais envolvidos. Caros amigos, a revolução dos costumes acarreta um processo de reformulação e modernização do retorno esperado a longo prazo. Acima de tudo, é fundamental ressaltar que o surgimento do comércio virtual pode nos levar a considerar a reestruturação das condições financeiras e administrativas exigidas.
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="col-md-4">
+        <div class=" card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 id="tabela_titulo_{{object.id}}_" class="m-0 font-weight-bold text-dark">
+                     <i class="fa fa-table "></i>
+                   Edital de Lotação</h6>
+            </div>
+            <div class="card-body">
+                <div class="tabela" id="tabela_{{object.id}}">
+Do mesmo modo, a contínua expansão de nossa atividade desafia a capacidade de equalização das diversas correntes de pensamento. Por outro lado, a complexidade dos estudos efetuados não pode mais se dissociar de todos os recursos funcionais envolvidos. Caros amigos, a revolução dos costumes acarreta um processo de reformulação e modernização do retorno esperado a longo prazo. Acima de tudo, é fundamental ressaltar que o surgimento do comércio virtual pode nos levar a considerar a reestruturação das condições financeiras e administrativas exigidas.
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+  <div class="col-md-6">
+        <div class=" card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 id="tabela_titulo_{{object.id}}_" class="m-0 font-weight-bold text-dark">
+                     <i class="fa fa-table "></i>
+                    {{object.grafico.nome|upper}}</h6>
+            </div>
+            <div class="card-body">
+                <div class="tabela" id="tabela_{{object.id}}">
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+        <div class="col-md-6">
+        <div class=" card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 id="tabela_titulo_{{object.id}}_" class="m-0 font-weight-bold text-dark">
+                     <i class="fa fa-table "></i>
+                    {{object.grafico.nome|upper}}</h6>
+            </div>
+            <div class="card-body">
+                <div class="tabela" id="tabela_{{object.id}}">
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+  <div class="col-md-4">
+        <div class=" card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 id="tabela_titulo_{{object.id}}_" class="m-0 font-weight-bold text-dark">
+                     <i class="fa fa-table "></i>
+                    {{object.grafico.nome|upper}}</h6>
+            </div>
+            <div class="card-body">
+                <div class="tabela" id="tabela_{{object.id}}">
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+          <div class="col-md-8">
+        <div class=" card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 id="tabela_titulo_{{object.id}}_" class="m-0 font-weight-bold text-dark">
+                     <i class="fa fa-table "></i>
+                    {{object.grafico.nome|upper}}</h6>
+            </div>
+            <div class="card-body">
+                <div class="tabela" id="tabela_{{object.id}}">
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+<div class="col-md-12">
+        <div class=" card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-dark"><i class="fa fa-chart-bar "></i> Dashboard </h6>
+            </div>
+            <div class="card-body">
+
+                  </div>
+        </div>
+    </div>
+
+
+</div>
+</div>
+
+{% block js_block %}
+<script src="{%static 'js/jquery.min.js'%}"></script>
+<script src="{%static 'js/js_dashboard.js'%}"></script>
+
+
+<script type="text/javascript">
+
+
+</script>
+
+{% endblock js_block %}
+{% endblock %}

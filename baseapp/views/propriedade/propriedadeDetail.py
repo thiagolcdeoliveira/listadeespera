@@ -1,13 +1,7 @@
 # coding=utf-8
-from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.views.generic import *
 
-
-from baseapp.forms.mensagem import MensagemForm
-from baseapp.models.grafico import Grafico
-from baseapp.models.propriedade import Propriedade
-
-from baseapp.variaveis import *
+from appusuario.models.propriedade import Propriedade
 
 
 # class TipoArquivoCreateView(PermissionRequiredMixin, CreateView):

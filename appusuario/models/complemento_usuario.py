@@ -7,8 +7,7 @@ from django.db import models
 from django.db.models import SET_NULL
 from django.urls import reverse
 
-from baseapp.models import Setor
-from baseapp.models.propriedade import Propriedade
+from .endereco import Endereco
 
 
 class ComplementoUsuario(models.Model):
@@ -20,12 +19,14 @@ class ComplementoUsuario(models.Model):
     '''
     user = models.OneToOneField(User, related_name='user_user', verbose_name='ID do Usuário (Auth User)',
                                    help_text='Deve conter o usuário.',on_delete=SET_NULL, null=True)
+    cpf = models.CharField(max_length=14, verbose_name='CPF',
+                                help_text='CPF.', null=True, blank=True)
     imagem = models.ImageField(upload_to='usuario/imagem', null=True, blank=True)
-    setor = models.ForeignKey(Setor,related_name="usuario_setor", verbose_name="Setor", on_delete=SET_NULL, null=True)
     telefone = models.CharField(max_length=15,  verbose_name='Telefone',
                                    help_text='Telefone de Contato.', null=True,blank=True )
-    propriedade = models.ManyToManyField(Propriedade,related_name='ususario_propriedade',blank=True)
-
+    #propriedade = models.ManyToManyField(Propriedade,related_name='ususario_propriedade',blank=True)
+    endereco = models.ForeignKey(Endereco, related_name="endereco_usuario", verbose_name="Endereço da Propriedade",
+                                 help_text='Endereço da Propriedade', blank=True, on_delete=SET_NULL, null=True)
     obs = models.TextField(max_length=200,  verbose_name='Observação',
                                 help_text='Telefone de Contato.',  null=True, blank=True)
     excluido = models.BooleanField(default=False, verbose_name="Excluído")

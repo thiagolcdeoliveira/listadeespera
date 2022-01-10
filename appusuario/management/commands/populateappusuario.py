@@ -1,9 +1,9 @@
 from django.core.management.base import BaseCommand
 from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
-from appusuario.models.email import Email
-from appusuario.models.instituicao import Instituicao
-from appusuario.models.complemento_usuario import ComplementoUsuario
+from appusuario.models import Email
+from appusuario.models import Instituicao
+from appusuario.models import ComplementoUsuario
 
 
 class Command(BaseCommand):

@@ -1,0 +1,160 @@
+{% extends 'base_lista.html' %}
+
+{% block title_block %}
+Listar Chamados
+{% endblock title_block %}
+{% load  static system %}
+{% block body_block %}
+
+
+<div class=" container">
+ <div class="row cabecario-impressao" style="display:none">
+     <div class="col-2" >
+         <div class="py-5 text-center">
+         <img class="d-block mx-auto mb-4" src="{% static '/img/logo1.png'%}" alt="" width="100" height="90">
+         </div>
+     </div>
+          <div class="col-9">
+
+        <div class="py-5 text-center">
+            <h2>Lista de Espera Unificada</h2>
+            <p class="lead">Consulta Pública a lista de Espera Unificadas dos Ceis da rede Municpal de Araquari. </p>
+        </div></div>
+     <div class="col"></div>
+
+    </div>
+
+    <div class="row cabecario-normal">
+        <div class="py-5 text-center">
+            <!--        <img class="d-block mx-auto mb-4" src="{% static '/img/logo1.png'%}" alt="" width="72" height="72">-->
+            <h2>Lista de Espera Unificada</h2>
+            <p class="lead">Consulta Pública a lista de Espera Unificadas dos Ceis da rede Municpal de Araquari. </p>
+        </div>
+
+    </div>
+
+    <form class="form" action="." method="GET" enctype="multipart/form-data">
+<!--        {% csrf_token %}-->
+        <div class="row">
+            <div class="col-md-4">
+                <label>Descrição</label>
+                <div class="input-group">
+                    <input class="form-control" name="descricao">
+
+                    <div class="input-group-append">
+                        <select class="form-select" name="tipo">
+                            <option value="0">Todos</option>
+                            <option value="{{select.codigo}}" {%if request.GET.tipo == select.codigo %} selected {%endif%}>Codigo</option>
+                            <option value="{{select.nome_crianca}}"{%if request.GET.tipo == select.nome_crianca %} selected {%endif%} >Nome da Criança</option>
+                            <option value="{{select.responsavel}}" {%if request.GET.tipo == select.responsavel %} selected {%endif%}>Responsavel</option>
+<!--                            <option value="{{select.descricao}}">Descriçao</option>-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label>Cei</label>
+                <select aria-label="Default select example" class="form-select " name="cei">
+                    <option value="" >Todos</option>
+
+                    {%for cei in ceis %}
+                    <option value="{{cei.id}}"  {%if request.GET.cei == cei.id %} selected {%endif%}>{{cei.nome}}</option>
+                    {%endfor%}
+                </select>
+
+            </div>
+                <div class="col-md-2">
+                <label>Status</label>
+                <select aria-label="Default select example" class="form-select" name="status">
+                    <option value="" >Todos</option>
+
+                    <option value="1"  {%if request.GET.status == '1' %} selected {%endif%} >Matriculados</option>
+                    <option value="2"  {%if request.GET.status == '2' %} selected {%endif%} >Não Matriculados</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="col-md-3">
+                <label>Turma</label>
+                <div class="input-group mb-3">
+                    <select aria-label="Default select example" class="form-select" name="turma">
+                        <option value="">Todos</option>
+
+                        {%for turma in turmas %}
+                        <option value="{{turma.id}}"  {%if request.GET.turma == turma.id %} selected {%endif%}>{{turma.nome}}</option>
+
+                        {%endfor%}
+                    </select>
+                       <div class="input-group-append">
+                        <button class="btn btn-dark" type="submit">
+                            <i class="fas fa-search fa-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </form>
+
+    <div class="table-responsive">
+        <table cellspacing="0" class="table table-bordered" id="dataTableCrianca">
+            <thead>
+            <tr>
+                <th>Código</th>
+                <th>Data Cadastro</th>
+                <th>Nome</th>
+                <th>Data Nascimento</th>
+                <th>Cei</th>
+                <th>Turma</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {%for object in object_list %}
+            <tr>
+                <td>#{{object.codigo}}</td>
+                <td>{{object.data_cadastro}}</td>
+                <td>{{object.nome}} {{object.sobrenome}}</td>
+                <td>{{object.data_nasc|date:"d / M / Y" }}</td>
+<!--                <td>{{object.cei}}</td>-->
+                <td>
+                    {%for cei in object.cei.all%}
+                    {%if not forloop.first %}/ {%endif%}
+                    {{cei}}
+                    {%endfor%}
+                </td>
+<!--                <td>{% turma_destinada object.id %}</td>-->
+                <td>{{object.turma}}</td>
+
+            </tr>
+            {%endfor%}
+            </tbody>
+        </table>
+        {%include "includes/paginete_busca1.html"%}
+
+
+    </div>
+</div>
+
+
+{% block js_block %}
+<!--<link rel="stylesheet" type="text/css" href="{%static 'listaapp/DataTables/datatables.min.css'%}"/>-->
+<!--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">-->
+
+<!--<script type="text/javascript" src="{%static 'listaapp/DataTables/datatables.min.js'%}"></script>-->
+
+{% endblock js_block %}
+{% block css_block %}
+<link href="{% static 'listaapp/css/print.css'%} " media="print" rel="stylesheet" type="text/css"/>
+
+
+{% endblock css_block %}
+
+
+{%endblock%}

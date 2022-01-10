@@ -5,12 +5,10 @@ import json
 import random
 import string
 
-from django.conf.global_settings import DEFAULT_FROM_EMAIL
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth.tokens import default_token_generator
-from django.core.mail import EmailMultiAlternatives
 # from django.core.urlresolvers import reverse_lazy, reverse
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django.shortcuts import redirect, render
@@ -21,13 +19,14 @@ from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views.generic import *
 
-# from appbase.variaveis import *
+from baseapp.views.email import send_mail
+
+
 from appusuario.forms import UsuarioForm
 from appusuario.forms.user import *
-# from eventos.settings.settings import DEFAULT_FROM_EMAIL
-from appusuario.models import ComplementoUsuario
-from appusuario.variaveis import DETAIL_COMPLEMENTO_USUARIO, LIST_USER, DETAIL_USER, DELETE_USER
-from baseapp.views.email import send_mail
+from appusuario.models.complemento_usuario import ComplementoUsuario
+from appusuario.variaveis import LIST_USER, DELETE_USER
+
 
 
 class UserListView(PermissionRequiredMixin, ListView):
@@ -263,7 +262,7 @@ def get_user(request):
 
 
 def mensagem(request, token, id, convidado, nome):
-    msg_topo = "<p>Prezado(a) senhor(a) " + nome + ",<br>voc&ecirc; foi cadastrado no Sistema de chamados da TI da prefeitura de Araquari</p>"
+    msg_topo = "<p>Prezado(a) senhor(a) " + nome + ",<br>voc&ecirc; foi cadastrado no Sistema de da Fila de Espera por Vagas nos CEIs da Prefeitura de Araquari</p>"
     msg_motivo = u"<p>Sua conta foi criada pois voc&ecirc;  foi  cadastrado  como autor de um chamado no sistema.</p>"
     texto_link = "<p> Para ativar sua conta, "
     link_user = "<a href='http://" + request.META[

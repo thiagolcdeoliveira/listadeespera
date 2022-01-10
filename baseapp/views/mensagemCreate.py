@@ -3,7 +3,6 @@ from django.shortcuts import get_object_or_404
 from django.urls import reverse
 from django.views.generic import *
 from baseapp.forms.mensagem import MensagemForm
-from baseapp.models.chamado import Chamado
 from baseapp.models.mensagem import Mensagem
 
 

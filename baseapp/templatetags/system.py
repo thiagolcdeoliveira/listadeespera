@@ -3,7 +3,7 @@ import datetime
 from django import template
 
 from base.settings import MEDIA_URL
-from baseapp.models.chamado import Chamado
+from listaapp.models.crianca import Crianca
 from baseapp.models.notificacao import Notificacao
 from baseapp.models.settings import Settings
 
@@ -14,7 +14,7 @@ def chamadosmesaberto():
     data = datetime.datetime.now()
 
     data = (data.strftime("%Y-%m-01 00:00:00"))
-    chamados =  Chamado.objects.filter(excluido=False, desativado=False, data_inicio__gte=data,status=False)
+    chamados =  Crianca.objects.filter(excluido=False, desativado=False, data_inicio__gte=data,status=False)
     return len(chamados)
 @register.simple_tag(name='media')
 def media():
