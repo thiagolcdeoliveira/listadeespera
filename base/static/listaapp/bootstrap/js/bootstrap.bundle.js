@@ -2088,7 +2088,8 @@
 
     var rect = element.getBoundingClientRect();
     var scaleX = 1;
-    var scaleY = 1; // FIXME:
+    var scaleY = 1;
+    // SFIXME
     // `offsetWidth` returns an integer while `getBoundingClientRect`
     // returns a float. This results in `scaleX` or `scaleY` being
     // non-1 when it should be for elements that aren't a full pixel in
