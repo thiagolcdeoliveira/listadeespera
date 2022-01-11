@@ -1,9 +1,10 @@
 {% load static  system %}
-<div class="col-xl-10  col-center-auto justify-content-md-center col-lg-10">
+<div class="espaco"></div>
+<div class="container ">
     <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-dark">Detalhes do Chamado</h6>
+            <h6 class="m-0 font-weight-bold text-dark">Detalhes da Criança</h6>
             <div class="dropdown no-arrow">
                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -11,7 +12,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                      aria-labelledby="dropdownMenuLink">
-{% if request.user|has_group:"Administrador"%}
+                    {% if request.user|has_group:"Administrador"%}
                     <div class="dropdown-header"><i class="fas fa-fw fa-key"></i> Adimistrativo</div>
 
                     <a class="dropdown-item" href="{#{% url 'chamado-admin-update' object.pk %}#}"><i
@@ -43,30 +44,29 @@
                     <img src="{% static '/img/logo2.png' %}" width="100%">
                 </div>
                 <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-dark">#{{object.id}}</strong>
+                    <strong class="d-inline-block mb-2 text-dark">#{{object.codigo}}</strong>
                     <h3 class="mb-0">{{object.nome}}</h3>
-                    <div class="mb-1 text-muted">Chamado aberto por {{object.servidor}}</div>
-                    <div class="mb-1 text-muted">{%if not object.responsavel %}
-                        Responsavel por atender o chamado: {{object.responsavel}}
-                        {%endif%}
-                    </div>
-                    <div class="mb-1 text-muted"> #{{object.id}}</div>
-                    <div class="mb-1 text-muted"> {{object.tipo_chamado}}</div>
-                    <div class="mb-1 text-muted">{{object.data_inicio}}</div>
-                    <div class="mb-1 text-muted"> {{object.setor.nome}} /</div>
+                    <div class="mb-1 text-muted">Cadastrado por {{object.usuario}}</div>
+                    <div class="mb-1 text-muted">Responsavel: {{object.responsavel}}</div>
+                    <div class="mb-1 text-muted">Contato: {{object.responsavel.telefone}}/{{object.responsavel.email}}</div>
+                    <div class="mb-1 text-muted">Código: {{object.codigo}}</div>
+                    <div class="mb-1 text-muted">Data de Nasc: {{object.data_nasc}}</div>
+                    <div class="mb-1 text-muted">Data de Cadastro na Fila: {{object.data_cadastro}} </div>
                     <div class="mb-1 text-muted">{{object.prioridade}}</div>
-                    <div class="mb-1 text-muted"> {%if object.data_fim%} {{object.data_fim}} {%else%} Nao Finalizado
-                        {%endif%}
+                    <div class="mb-1 text-muted">{%if object.data_retirada_fila%} Data de Matrícula: {{object.data_retirada_fila}} {%else%} {%endif%}</div>
+                    <div class="mb-1 text-muted">Turma:  {{object.turma}}</div>
+                    <div class="mb-1 text-muted">CEIs:    {%for cei in object.cei.all%} {%if not forloop.first %}/ {%endif%}
+                    {{cei}}{%endfor%}
                     </div>
 
                 </div>
             </div>
             <div class="row ">
 
-                <div class="col p-4 d-flex flex-column position-static">
-                    <div class="mb-0">Descrição:</div>
-                    <p class="card-text mb-auto">{{object.descricao}}</p>
-                </div>
+<!--                <div class="col p-4 d-flex flex-column position-static">-->
+<!--                    <div class="mb-0">Descrição:</div>-->
+<!--                    <p class="card-text mb-auto">{{object.descricao}}</p>-->
+<!--                </div>-->
             </div>
             <div class="row ">
                 <div class="col p-4 d-flex flex-column position-static">
@@ -94,7 +94,7 @@
                         {% if user.is_authenticated%}
                         <div class="bg-white">
                         </div>
-                        <form class="" action="{#{%url 'mensagem-chamado-add' object.id  %}#}"
+                        <form class="" action="{%url 'mensagem-crianca-add' object.id  %}"
                               method="post"
                               enctype="multipart/form-data">
                             {% csrf_token %}

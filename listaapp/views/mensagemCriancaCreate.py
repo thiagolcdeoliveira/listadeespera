@@ -7,7 +7,7 @@ from baseapp.models.mensagem import Mensagem
 from listaapp.models.crianca import Crianca
 
 
-class MensagemCreateView( CreateView):
+class MensagemCriancaCreateView( CreateView):
     template_name = 'includes/mensagem.html'
     model = Mensagem
     form_class = MensagemForm
@@ -19,7 +19,7 @@ class MensagemCreateView( CreateView):
         self.crianca = get_object_or_404(Crianca,pk=self.kwargs.get('pk'))
         self.crianca.mensagem.add(self.object)
         self.crianca.save()
-        return super(MensagemCreateView, self).form_valid(form)
+        return super(MensagemCriancaCreateView, self).form_valid(form)
 
     def form_invalid(self, form):
         return reverse('crianca-detail',kwargs={"pk": self.kwargs.get('pk')})

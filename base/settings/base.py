@@ -137,4 +137,4 @@ EMAIL_HOST_USER = "ti.prefeitura.araquari@gmail.com"
 EMAIL_USE_TLS = True
 EMAIL_Host = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_Host_PASSWORD = ''
+EMAIL_Host_PASSWORD = 'Dvb(0@1Tl'

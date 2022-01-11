@@ -10,7 +10,7 @@ from .views.home import HomeView
 
 
 from .views.crianca.criancaList import CriancaPublicaListView
-
+from .views.mensagemCriancaCreate import MensagemCriancaCreateView
 
 urlpatterns = [
 
@@ -56,8 +56,8 @@ urlpatterns = [
     #
     # url(r'^chamado/servidor/pesquisar/$', PesquisarUserCreateAjaxView.as_view(),
     #     name='user-servidor-pesquisar'),
-    # url(r'^chamado/mensagem/cadastrar/(?P<pk>[\d\-]+)/$', MensagemCreateView.as_view(),
-    #     name='mensagem-chamado-add'),
+    url(r'^crianca/mensagem/cadastrar/(?P<pk>[\d\-]+)/$', MensagemCriancaCreateView.as_view(),
+        name='mensagem-crianca-add'),
     # url(r'^chamado/propriedade/(?P<pk>[\d\-]+)/$', ChamadoListView.as_view(),
     #     name='chamado-propriedade-history'),
 

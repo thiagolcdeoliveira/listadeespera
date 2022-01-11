@@ -53,6 +53,9 @@ class Crianca(models.Model):
     cei = models.ManyToManyField(Cei, verbose_name="Cei",
                                     help_text='Cei desejado .',
                                      null=True)
+    mensagem = models.ManyToManyField(Mensagem, verbose_name="Mensagem",
+                                    help_text='mensagem.',
+                                     null=True)
     # on_delete = SET_NULL,
 
     data_cadastro = models.DateTimeField(auto_now_add=True, null=True)
