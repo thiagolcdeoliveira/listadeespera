@@ -54,8 +54,9 @@ class Crianca(models.Model):
                                     help_text='Cei desejado .',
                                      null=True)
     mensagem = models.ManyToManyField(Mensagem, verbose_name="Mensagem",
-                                    help_text='mensagem.',
-                                     null=True)
+                                     help_text='mensagem.',
+                                     null=True,
+                                     blank=True )
     # on_delete = SET_NULL,
 
     data_cadastro = models.DateTimeField(auto_now_add=True, null=True)
