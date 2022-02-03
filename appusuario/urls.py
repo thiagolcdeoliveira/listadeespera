@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'^complemento-usuario/(?P<pk>[0-9]+)/excluir/$', ComplementoUsuarioDeleteView.as_view(), name='complemento-usuario-delete'),
     url(r'^complemento-usuario/listar/$', ComplementoUsuarioListView.as_view(), name='usuario-list'),
 
-    url(r'^complemento-usuario/confirmar/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', verifica_token, name='complemento-usuario-verifica-token'),
+    url(r'^complemento-usuario/confirmar/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[\w-]+)/$', verifica_token, name='complemento-usuario-verifica-token'),
 
     # ---- User ----#
     url(r'^user/cadastrar/$', UserCreateView.as_view(), name='user-add'),
@@ -44,7 +44,7 @@ urlpatterns = [
     url(r'^usuario/redefinir-senha/feito/$', PasswordResetDoneView.as_view(template_name ='appusuario/redefinirsenha-feito.html'), {'template_name': 'appusuario/redefinirsenha-feito.html'}, name='password_reset_done'),
     url(r'^usuario/redefinir/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)//$', PasswordResetConfirmView.as_view(template_name ='appusuario/redefinirsenha-confirmacao.html'), {'template_name': 'appusuario/redefinirsenha-confirmacao.html'}, name='password_reset_confirm'),
     url(r'^usuario/redefinir/feito/$', PasswordResetCompleteView.as_view(template_name ='appusuario/redefinirsenha-completo.html'), {'template_name': 'appusuario/redefinirsenha-completo.html'}, name='password_reset_complete'),
-    url(r'^complemento-usuario/troca-senha/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+    url(r'^complemento-usuario/troca-senha/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[\w-]+)/$',
         verifica_token_autor,
         name='verifica_token_autor'),
 

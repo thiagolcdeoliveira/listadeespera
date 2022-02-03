@@ -52,10 +52,10 @@ class Crianca(models.Model):
 
     cei = models.ManyToManyField(Cei, verbose_name="Cei",
                                     help_text='Cei desejado .',
-                                     null=True)
+                                    blank=True)
     mensagem = models.ManyToManyField(Mensagem, verbose_name="Mensagem",
                                      help_text='mensagem.',
-                                     null=True,
+
                                      blank=True )
     # on_delete = SET_NULL,
 
@@ -87,6 +87,8 @@ class Crianca(models.Model):
         #if not self.turma:
        # self.turma = calculoTurma(self.data_nasc)
         self.turma ,created = Turma.objects.get_or_create(id=calculoTurma(self.data_nasc))
+        if created:
+            self.turma.nome = "Aguardando Turma..."
         super(Crianca, self).save(*args, **kwargs)
 
     class Meta:
